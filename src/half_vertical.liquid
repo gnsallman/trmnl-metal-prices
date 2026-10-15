@@ -1,0 +1,26 @@
+{% assign gold = IDX_0.price | round: 2 | number_with_delimiter %}
+{% assign silver = IDX_1.price | round: 2 | number_with_delimiter %}
+
+{% assign gold_dec = gold | split: "." | last %}
+{% if gold_dec.size == 1 %}{% assign gold = gold | append: "0" %}{% endif %}
+
+{% assign silver_dec = silver | split: "." | last %}
+{% if silver_dec.size == 1 %}{% assign silver = silver | append: "0" %}{% endif %}
+
+<div class="view view--half_vertical">
+  <div class="layout layout--col layout--center-y gap--large"
+       style="display:flex; flex-direction:column; align-items:center; text-align:center;">
+    <div style="text-align:center;">
+      <span class="label" style="display:block; text-align:center;">Gold / oz</span>
+      <span class="value value--xlarge value--tnums" style="display:block; text-align:center;">${{ gold }}</span>
+    </div>
+    <div style="text-align:center;">
+      <span class="label" style="display:block; text-align:center;">Silver / oz</span>
+      <span class="value value--xlarge value--tnums" style="display:block; text-align:center;">${{ silver }}</span>
+    </div>
+  </div>
+  <div class="title_bar">
+    <span class="title">Metals</span>
+    <span class="instance">XAU / XAG</span>
+  </div>
+</div>
